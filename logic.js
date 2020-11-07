@@ -2,7 +2,6 @@ var NameArray = [];
 
 async function ReadTextFile() {
   NameArray = await AsyncTextReader();
-  GetLandData('Genesis');
 }
 
 function AsyncTextReader() {
@@ -24,3 +23,16 @@ function AsyncTextReader() {
   });
 
 }
+
+function ScrollDownTOP(Orientierung) {
+    var ScrollBut = "ScrollButtonBOTTOM" + Orientierung;
+    var elmnt = document.getElementById(ScrollBut);
+    elmnt.scrollIntoView({behavior: "smooth"}); 
+}
+
+function ScrollDownBOTTOM(Orientierung) {
+    var ScrollBut = "ScrollButtonTOP" + Orientierung;
+    var elmnt = document.getElementById(ScrollBut);
+    elmnt.scrollIntoView({behavior: "smooth"}); 
+}
+

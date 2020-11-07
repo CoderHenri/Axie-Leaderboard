@@ -84,4 +84,17 @@
   }
 }
 
+.ScrollButton {
+    position: relative;
+    bottom: 10px;
+    background-color: #252835;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    padding: 5px 60px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 
