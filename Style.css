@@ -97,4 +97,35 @@
     cursor: pointer;
 }
 
+.ChartBox {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 1200px;
+    height: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+}
 
+.Category {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    text-decoration: underline;
+    text-align: center;
+}
+
+.ListClass{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 0px;
+}
+
+.ClassChart {
+    position: relative;
+    top: 15px;
+  }
