@@ -22,93 +22,95 @@
 
     <!--<button onclick="ReadTextFile()"> Testrun Start </button>-->
 
-    <!--<div id="lds-hourglass"></div>-->
+    <div id="lds-hourglass"></div>
 
-    <div align="center">
-        <button class="ScrollButton" id="ScrollButtonBOTTOMOrigin" onclick="ScrollDownTOP('Mystic')"> Scroll Down to Mystic Axies </button>
+    <div id="InvisibleTillLoadedText"> Loading may take up to 2 Minutes </div>
+    <div id="InvisibleTillLoaded">
+        <div align="center">
+            <button class="ScrollButton" id="ScrollButtonBOTTOMOrigin" onclick="ScrollDownTOP('Mystic')"> Scroll Down to Mystic Axies </button>
+        </div>
+        <div class="ChartBox" id="ChartBoxOrigin">
+            <div class="Category"> Origin Axies </div>
+            <div class="Category"> Normal Class </div>
+            <div class="Category"> Rare Class </div>
+            <div class="Category"> All Classes </div>
+
+            <div class="Category"> Charts </div>
+            <canvas class="ClassChart" id="OriginNormalChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="OriginRareChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="OriginAllChart" width="300" height="450"></canvas>
+
+            <div class="Category"> Accountlist </div>
+            <div class="ListClass" id="OriginNormalList"></div>
+            <div class="ListClass" id="OriginRareList"></div>
+            <div class="ListClass" id="OriginAllList"></div>
+        </div>
+
+        <br>
+        <div align="center">
+            <button class="ScrollButton" id="ScrollButtonBOTTOMMystic" onclick="ScrollDownBOTTOM('Meo1')"> Scroll Down to MEO I Axies </button>
+            <button class="ScrollButton" id="ScrollButtonTOPMystic" onclick="ScrollDownTOP('Origin')"> Scroll Up to Origin Axies </button>
+        </div>
+        <div class="ChartBox" id="ChartBoxMystic">
+            <div class="Category"> Mystic Axies </div>
+            <div class="Category"> Normal Class </div>
+            <div class="Category"> Rare Class </div>
+            <div class="Category"> All Classes </div>
+
+            <div class="Category"> Charts </div>
+            <canvas class="ClassChart" id="MysticNormalChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="MysticRareChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="MysticAllChart" width="300" height="450"></canvas>
+
+            <div class="Category"> Accountlist </div>
+            <div class="ListClass" id="MysticNormalList"></div>
+            <div class="ListClass" id="MysticRareList"></div>
+            <div class="ListClass" id="MysticAllList"></div>
+        </div>
+
+        <br>
+        <div align="center">
+            <button class="ScrollButton" id="ScrollButtonBOTTOMMeo1" onclick="ScrollDownBOTTOM('Meo2')"> Scroll Down to Meo II Axies </button>
+            <button class="ScrollButton" id="ScrollButtonTOPMeo1" onclick="ScrollDownTOP('Mystic')"> Scroll Up to Mystic Axies </button>
+        </div>
+        <div class="ChartBox" id="ChartBoxMeo1">
+            <div class="Category"> MEO I Axies </div>
+            <div class="Category"> Normal Class </div>
+            <div class="Category"> Rare Class </div>
+            <div class="Category"> All Classes </div>
+            
+            <div class="Category"> Charts </div>
+            <canvas class="ClassChart" id="Meo1NormalChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="Meo1RareChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="Meo1AllChart" width="300" height="450"></canvas>
+            
+            <div class="Category"> Accountlist </div>
+            <div class="ListClass" id="Meo1NormalList"></div>
+            <div class="ListClass" id="Meo1RareList"></div>
+            <div class="ListClass" id="Meo1AllList"></div>
+        </div>
+
+        <br>
+        <div align="center">
+            <button class="ScrollButton" id="ScrollButtonTOPMeo2" onclick="ScrollDownTOP('Meo1')"> Scroll Up to Meo I Axies </button>
+        </div>
+        <div class="ChartBox" id="ChartBoxMeo2">
+            <div class="Category"> MEO II Axies </div>
+            <div class="Category"> Normal Class </div>
+            <div class="Category"> Rare Class </div>
+            <div class="Category"> All Classes </div>
+            
+            <div class="Category"> Charts </div>
+            <canvas class="ClassChart" id="Meo2NormalChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="Meo2RareChart" width="300" height="450"></canvas>
+            <canvas class="ClassChart" id="Meo2AllChart" width="300" height="450"></canvas>
+            
+            <div class="Category"> Accountlist </div>
+            <div class="ListClass" id="Meo2NormalList"></div>
+            <div class="ListClass" id="Meo2RareList"></div>
+            <div class="ListClass" id="Meo2AllList"></div>
+        </div>
     </div>
-    <div class="ChartBox" id="ChartBoxOrigin">
-        <div class="Category"> Origin Axies </div>
-        <div class="Category"> Normal Class </div>
-        <div class="Category"> Rare Class </div>
-        <div class="Category"> All Classes </div>
-
-        <div class="Category"> Charts </div>
-        <canvas class="ClassChart" id="OriginNormalChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="OriginRareChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="OriginAllChart" width="300" height="280"></canvas>
-
-        <div class="Category"> Accountlist </div>
-        <div class="ListClass" id="OriginNormalList"></div>
-        <div class="ListClass" id="OriginRareList"></div>
-        <div class="ListClass" id="OriginAllList"></div>
-    </div>
-
-    <br>
-    <div align="center">
-        <button class="ScrollButton" id="ScrollButtonBOTTOMMystic" onclick="ScrollDownBOTTOM('Meo1')"> Scroll Down to MEO I Axies </button>
-        <button class="ScrollButton" id="ScrollButtonTOPMystic" onclick="ScrollDownTOP('Origin')"> Scroll Up to Origin Axies </button>
-    </div>
-    <div class="ChartBox" id="ChartBoxMystic">
-        <div class="Category"> Mystic Axies </div>
-        <div class="Category"> Normal Class </div>
-        <div class="Category"> Rare Class </div>
-        <div class="Category"> All Classes </div>
-
-        <div class="Category"> Charts </div>
-        <canvas class="ClassChart" id="MysticNormalChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="MysticRareChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="MysticAllChart" width="300" height="280"></canvas>
-
-        <div class="Category"> Accountlist </div>
-        <div class="ListClass" id="MysticNormalList"></div>
-        <div class="ListClass" id="MysticRareList"></div>
-        <div class="ListClass" id="MysticAllList"></div>
-    </div>
-
-    <br>
-    <div align="center">
-        <button class="ScrollButton" id="ScrollButtonBOTTOMMeo1" onclick="ScrollDownBOTTOM('Meo2')"> Scroll Down to Meo II Axies </button>
-        <button class="ScrollButton" id="ScrollButtonTOPMeo1" onclick="ScrollDownTOP('Mystic')"> Scroll Up to Mystic Axies </button>
-    </div>
-    <div class="ChartBox" id="ChartBoxMeo1">
-        <div class="Category"> MEO I Axies </div>
-        <div class="Category"> Normal Class </div>
-        <div class="Category"> Rare Class </div>
-        <div class="Category"> All Classes </div>
-        
-        <div class="Category"> Charts </div>
-        <canvas class="ClassChart" id="Meo1NormalChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="Meo1RareChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="Meo1AllChart" width="300" height="280"></canvas>
-        
-        <div class="Category"> Accountlist </div>
-        <div class="ListClass" id="Meo1NormalList"></div>
-        <div class="ListClass" id="Meo1RareList"></div>
-        <div class="ListClass" id="Meo1AllList"></div>
-    </div>
-
-    <br>
-    <div align="center">
-        <button class="ScrollButton" id="ScrollButtonTOPMeo2" onclick="ScrollDownTOP('Meo1')"> Scroll Up to Meo I Axies </button>
-    </div>
-    <div class="ChartBox" id="ChartBoxMeo2">
-        <div class="Category"> MEO II Axies </div>
-        <div class="Category"> Normal Class </div>
-        <div class="Category"> Rare Class </div>
-        <div class="Category"> All Classes </div>
-        
-        <div class="Category"> Charts </div>
-        <canvas class="ClassChart" id="Meo2NormalChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="Meo2RareChart" width="300" height="280"></canvas>
-        <canvas class="ClassChart" id="Meo2AllChart" width="300" height="280"></canvas>
-        
-        <div class="Category"> Accountlist </div>
-        <div class="ListClass" id="Meo2NormalList"></div>
-        <div class="ListClass" id="Meo2RareList"></div>
-        <div class="ListClass" id="Meo2AllList"></div>
-    </div>
-
 </div> 
 
 </body>

@@ -172,12 +172,14 @@ function Categoriser(Array) {
         UniqueOwnerArray[UniqueOwnerArray.length-1].MEOIIs = UniqueOwnerArray[UniqueOwnerArray.length-1].MEOIIs + OwnerList[i].MEOIIs;
         UniqueOwnerArray[UniqueOwnerArray.length-1].RareMEOIIs = UniqueOwnerArray[UniqueOwnerArray.length-1].RareMEOIIs + OwnerList[i].RareMEOIIs;
     } else {
-        UniqueOwnerArray.push({EthOwner : OwnerList[i].EthOwner, Origins : OwnerList[i].Origins, RareOrigins : OwnerList[i].RareOrigins, Mystics : OwnerList[i].Mystics, RareMystics : OwnerList[i].RareMystics,  MEOs : OwnerList[i].MEOs, RareMEOs : OwnerList[i].RareMEOs, MEOIIs : OwnerList[i].MEOIIs, RareMEOIIs : OwnerList[i].RareMEOIIs});
+        UniqueOwnerArray.push({EthOwner : OwnerList[i].EthOwner, Origins : OwnerList[i].Origins, RareOrigins : OwnerList[i].RareOrigins, Mystics : OwnerList[i].Mystics, RareMystics : OwnerList[i].RareMystics, MEOs : OwnerList[i].MEOs, RareMEOs : OwnerList[i].RareMEOs, MEOIIs : OwnerList[i].MEOIIs, RareMEOIIs : OwnerList[i].RareMEOIIs});
     }
     } else {
-    UniqueOwnerArray.push({EthOwner : OwnerList[i].EthOwner, Origins : OwnerList[i].Origins, RareOrigins : OwnerList[i].RareOrigins, Mystics : OwnerList[i].Mystics, RareMystics : OwnerList[i].RareMystics,  MEOs : OwnerList[i].MEOs, RareMEOs : OwnerList[i].RareMEOs, MEOIIs : OwnerList[i].MEOIIs, RareMEOIIs : OwnerList[i].RareMEOIIs});
+    UniqueOwnerArray.push({EthOwner : OwnerList[i].EthOwner, Origins : OwnerList[i].Origins, RareOrigins : OwnerList[i].RareOrigins, Mystics : OwnerList[i].Mystics, RareMystics : OwnerList[i].RareMystics, MEOs : OwnerList[i].MEOs, RareMEOs : OwnerList[i].RareMEOs, MEOIIs : OwnerList[i].MEOIIs, RareMEOIIs : OwnerList[i].RareMEOIIs});
     }
   }
+
+  console.log(UniqueOwnerArray);
   ProfileNamer(UniqueOwnerArray);
 }
 
@@ -238,6 +240,254 @@ async function ProfileNamer(Array) {
       }
       
       }
-  console.log(Array);
-  //ListMaker(Array);
+  ListMaker(Array);
 }
+
+function ListMaker(Array) {
+  console.log(Array);
+
+      var TotalList = Array;
+      var OriginList = [];
+      var RareOriginList = [];
+      var OriginTotalList = [];
+
+      var MysticList = [];
+      var RareMysticList = [];
+      var MysticTotalList = [];
+
+      var MEOList = [];
+      var RareMEOList = [];
+      var MEOTotalList = [];
+
+      var MEOIIList = [];
+      var RareMEOIIList = [];
+      var MEOIITotalList = [];
+  
+      //Array Key is called Origins every time because of the chartmaker function !!!
+      for(i = 0; i < Array.length; i++) {
+          if(Array[i].Origins != 0) {
+              OriginList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].Origins});
+          }
+          if(Array[i].RareOrigins != 0) {
+              RareOriginList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].RareOrigins});
+          }
+          if(Array[i].Origins != 0 || Array[i].RareOrigins != 0) {
+            var TotalO = Array[i].Origins + Array[i].RareOrigins;
+            OriginTotalList.push({EthOwner : Array[i].EthOwner, Origins : TotalO});
+          }
+          if(Array[i].Mystics != 0) {
+            MysticList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].Mystics});
+          }
+          if(Array[i].RareMystics != 0) {
+            RareMysticList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].RareMystics});
+          }
+          if(Array[i].Mystics != 0 || Array[i].RareMystics != 0) {
+            var TotalM = Array[i].Mystics + Array[i].RareMystics;
+            MysticTotalList.push({EthOwner : Array[i].EthOwner, Origins : TotalM});
+          }
+          if(Array[i].MEOs != 0) {
+              MEOList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].MEOs});
+          }
+          if(Array[i].RareMEOs != 0) {
+              RareMEOList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].RareMEOs});
+          }
+          if(Array[i].MEOs != 0 || Array[i].RareMEOs != 0) {
+            var TotalMEO = Array[i].MEOs + Array[i].RareMEOs;
+            MEOTotalList.push({EthOwner : Array[i].EthOwner, Origins : TotalMEO});
+          }
+          if(Array[i].MEOIIs != 0) {
+              MEOIIList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].MEOIIs});
+          }
+          if(Array[i].RareMEOIIs != 0) {
+              RareMEOIIList.push({EthOwner : Array[i].EthOwner, Origins : Array[i].RareMEOIIs});
+          }
+          if(Array[i].MEOIIs != 0 || Array[i].RareMEOIIs != 0) {
+            var TotalMEOII = Array[i].MEOIIs + Array[i].RareMEOIIs;
+            MEOIITotalList.push({EthOwner : Array[i].EthOwner, Origins : TotalMEOII});
+          }
+      }
+  
+      console.log(RareOriginList);
+      console.log(MEOList);
+      console.log("total");
+      console.log(MEOIITotalList);
+      console.log(MysticTotalList);
+  
+      OriginList.sort((a,b) => b.Origins - a.Origins);
+      RareOriginList.sort((a,b) => b.Origins - a.Origins);
+      OriginTotalList.sort((a,b) => b.Origins - a.Origins);
+      MysticList.sort((a,b) => b.Origins - a.Origins);
+      RareMysticList.sort((a,b) => b.Origins - a.Origins);
+      MysticTotalList.sort((a,b) => b.Origins - a.Origins);
+      MEOList.sort((a,b) => b.Origins - a.Origins);
+      RareMEOList.sort((a,b) => b.Origins - a.Origins);
+      MEOTotalList.sort((a,b) => b.Origins - a.Origins);
+      MEOIIList.sort((a,b) => b.Origins - a.Origins);
+      RareMEOIIList.sort((a,b) => b.Origins - a.Origins);
+      MEOIITotalList.sort((a,b) => b.Origins - a.Origins);
+  
+      document.getElementById("OriginNormalList").innerHTML = '<ol class="LL">' + OriginList.map(function (genesis) {
+          return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("OriginRareList").innerHTML = '<ol class="LL">' + RareOriginList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("OriginAllList").innerHTML = '<ol class="LL">' + OriginTotalList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+  
+      document.getElementById("MysticNormalList").innerHTML = '<ol class="LL">' + MysticList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("MysticRareList").innerHTML = '<ol class="LL">' + RareMysticList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("MysticAllList").innerHTML = '<ol class="LL">' + MysticTotalList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo1NormalList").innerHTML = '<ol class="LL">' + MEOList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo1RareList").innerHTML = '<ol class="LL">' + RareMEOList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo1AllList").innerHTML = '<ol class="LL">' + MEOTotalList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo2NormalList").innerHTML = '<ol class="LL">' + MEOIIList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo2RareList").innerHTML = '<ol class="LL">' + RareMEOIIList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+
+      document.getElementById("Meo2AllList").innerHTML = '<ol class="LL">' + MEOIITotalList.map(function (genesis) {
+        return '<li>' + String(genesis["Origins"]) + " owned by " + String(genesis["EthOwner"]) + '</li>';
+      }).join('') + '</ol>';
+  
+      ChartMaker(OriginList, "OriginNormalChart");
+      ChartMaker(RareOriginList, "OriginRareChart");
+      ChartMaker(OriginTotalList, "OriginAllChart");
+
+      ChartMaker(MysticList, "MysticNormalChart");
+      ChartMaker(RareMysticList, "MysticRareChart");
+      ChartMaker(MysticTotalList, "MysticAllChart");
+
+      ChartMaker(MEOList, "Meo1NormalChart");
+      ChartMaker(RareMEOList, "Meo1RareChart");
+      ChartMaker(MEOTotalList, "Meo1AllChart");
+
+      ChartMaker(MEOIIList, "Meo2NormalChart");
+      ChartMaker(RareMEOIIList, "Meo2RareChart");
+      ChartMaker(MEOIITotalList, "Meo2AllChart");
+      
+  }
+  
+  function ChartMaker(Array, WhichChart) {
+  
+    var RestMenge = 0;
+    for(i=9; Array.length > i; i++) {
+      RestMenge = RestMenge + Array[i].Origins;
+    }
+  
+    var GesamtMenge = 0;
+    for(i=0; Array.length > i; i++) {
+      GesamtMenge = GesamtMenge + Array[i].Origins;
+    }
+  
+    var ctx = document.getElementById(WhichChart);
+  
+    var TotalLand = 0;
+  
+    for(m=0; Array.length > m; m++){
+      TotalLand = TotalLand + Array[m].Origins;
+    }
+  
+    console.log(Array);
+  
+    var LandMenge = [Array[0].Origins, Array[1].Origins, Array[2].Origins, Array[3].Origins, Array[4].Origins, Array[5].Origins, Array[6].Origins, Array[7].Origins, Array[8].Origins, RestMenge];
+    var LandBesitzer = [Array[0].EthOwner, Array[1].EthOwner, Array[2].EthOwner, Array[3].EthOwner, Array[4].EthOwner, Array[5].EthOwner, Array[6].EthOwner, Array[7].EthOwner, Array[8].EthOwner, "All other Players"];
+  
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: LandBesitzer,
+        datasets: [{
+            label: 'Axie Land',
+            data: LandMenge,
+            backgroundColor: [
+              'rgba(0,104,55, 0.25)',
+              'rgba(165,0,38, 0.25)',
+              'rgba(26,152,80, 0.25)',
+              'rgba(215,48,39, 0.25)',
+              'rgba(102,189,99, 0.25)',
+              'rgba(244,109,67, 0.25)',
+              'rgba(166,217,106, 0.25)',
+              'rgba(253,174,97, 0.25)',
+              'rgba(217,239,139, 0.25)',
+              'rgba(254,224,139, 0.25)'
+            ],
+            borderColor: [
+              'rgba(0,104,55, 1)',
+              'rgba(165,0,38, 1)',
+              'rgba(26,152,80, 1)',
+              'rgba(215,48,39, 1)',
+              'rgba(102,189,99, 1)',
+              'rgba(244,109,67, 1)',
+              'rgba(166,217,106, 1)',
+              'rgba(253,174,97, 1)',
+              'rgba(217,239,139, 1)',
+              'rgba(254,224,139, 1)'
+            ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          position: 'top',
+          fontSize: 15,
+          fontFamily: 'Arial',
+          text: "Total Amount: " + TotalLand
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            afterLabel: function(tooltipItem, data) {
+              var dataset = data['datasets'][0];
+              var percent = Math.round((dataset['data'][tooltipItem['index']] / GesamtMenge) * 100)
+              return '(' + percent + '%)';
+            }
+          },
+        },
+        responsive: false,
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            fontColor: '#FFFFFF',
+            boxWidth: 15,
+            fontSize: 10
+          }
+        }
+      }
+    })
+    var L = document.getElementById("lds-hourglass");
+    L.style.display = "none";
+
+    var Y = document.getElementById("InvisibleTillLoadedText");
+    Y.style.display = "none";
+
+    var Z = document.getElementById("InvisibleTillLoaded");
+    Z.style.display = "block";
+    
+  }

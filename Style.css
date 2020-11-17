@@ -48,8 +48,21 @@
     margin-top: -40px;
 }
 
+#InvisibleTillLoadedText {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  display: block;
+}
+
+#InvisibleTillLoaded {
+  display: none;
+}
+
 /*Loader*/
 #lds-hourglass {
+    left: -40px;
     margin-left: 50%;
     margin-right: 50%;
     display: inline-block;
@@ -118,14 +131,22 @@
 }
 
 .ListClass{
-    font-size: 20px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
     text-align: center;
     margin-top: 0px;
 }
 
 .ClassChart {
+    border: 1px solid rgb(255, 255, 255);
     position: relative;
-    top: 15px;
-  }
+}
+
+.LL {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    left: 10px;
+}
