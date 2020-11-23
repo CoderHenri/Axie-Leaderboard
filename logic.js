@@ -44,15 +44,11 @@ async function GetAxieData() {
   //{"operationName":"GetAxieBriefList","variables":{"from":0,"size":100,"sort":"IdAsc","auctionType":"All","owner":null,"criteria":{"region":null,"parts":null,"bodyShapes":null,"classes":null,"stages":null,"numMystic":[0,1,2,3,4],"pureness":null,"title":["Origin","MEO Corp","MEO Corp II"],"breedable":null,"breedCount":null,"hp":[],"skill":[],"speed":[],"morale":[]}},
   //"query":"query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {\n  axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {\n    total\n    results {\n      ...AxieBrief\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment AxieBrief on Axie {\n owner\n  id\n  class\n  title\n  numMystic\n  \n  __typename\n}\n"}
 
-  var NumberStart = 0;
-  var NumberEnd = 100;
-
-  var TempArray = [];
   var TaggedArray = [];
+  var ConCatArray = [];
 
   var url = "https://axieinfinity.com/graphql-server/graphql"
 
-  while(NumberStart < 6390){
     await fetch(url, {
       method: "POST",
       headers: {
@@ -62,25 +58,72 @@ async function GetAxieData() {
       
       body: JSON.stringify({
         operationName:"GetAxieBriefList",
-        "variables":{
-          "from":NumberStart,
-          "size":NumberEnd,
-          "sort":"IdAsc",
-          "auctionType":"All",
-          "owner":null,"criteria":{
-            "region":null,
-            "parts":null,
-            "bodyShapes":null,
-            "classes":null,
-            "stages":null,
-            "numMystic":[0,1,2,3,4],
-            "pureness":null,
-            "title":["Origin","MEO Corp","MEO Corp II"],
-            "breedable":null,
-            "breedCount":null,
-            "hp":[],"skill":[],"speed":[],"morale":[]}
-          },
-          query:"query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {\n  axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {\n    total\n    results {\n      ...AxieBrief\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment AxieBrief on Axie {\n owner\n  id\n  class\n  title\n  numMystic\n  \n  __typename\n}\n"})
+        query:"query GetAxieBriefList{ "+
+		  "\n part1:axies(from:0,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part2:axies(from:100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part3:axies(from:200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part4:axies(from:300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part5:axies(from:400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part6:axies(from:500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part7:axies(from:600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part8:axies(from:700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part9:axies(from:800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part10:axies(from:900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part11:axies(from:1000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part12:axies(from:1100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part13:axies(from:1200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part14:axies(from:1300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part15:axies(from:1400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part16:axies(from:1500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part17:axies(from:1600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part18:axies(from:1700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part19:axies(from:1800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part20:axies(from:1900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part21:axies(from:2000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part22:axies(from:2100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part23:axies(from:2200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part24:axies(from:2300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part25:axies(from:2400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part26:axies(from:2500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part27:axies(from:2600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part28:axies(from:2700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part29:axies(from:2800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part30:axies(from:2900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part31:axies(from:3000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part32:axies(from:3100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part33:axies(from:3200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part34:axies(from:3300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part35:axies(from:3400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part36:axies(from:3500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part37:axies(from:3600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part38:axies(from:3700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part39:axies(from:3800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part40:axies(from:3900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part41:axies(from:4000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part42:axies(from:4100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part43:axies(from:4200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part44:axies(from:4300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part45:axies(from:4400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part46:axies(from:4500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part47:axies(from:4600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part48:axies(from:4700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part49:axies(from:4800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part50:axies(from:4900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part51:axies(from:5000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part52:axies(from:5100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part53:axies(from:5200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part54:axies(from:5300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part55:axies(from:5400,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part56:axies(from:5500,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part57:axies(from:5600,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part58:axies(from:5700,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part59:axies(from:5800,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n part60:axies(from:5900,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part61:axies(from:6000,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part62:axies(from:6100,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part63:axies(from:6200,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+      "\n part64:axies(from:6300,size:100,sort:IdAsc,criteria:{numMystic:[0,1,2,3,4],title:[\"Origin\",\"MEO Corp\",\"MEO Corp II\"]}) {\n total\n results {\n ...AxieBrief\n __typename\n }\n __typename\n }"+
+		  "\n}\n\n fragment AxieBrief on Axie {\n owner\n  id\n  class\n  title\n  numMystic\n  \n  __typename\n}\n"})
     })
       
     .then(function(response) { 
@@ -88,15 +131,79 @@ async function GetAxieData() {
     })
 
     .then(function(data) {
-      TempArray = data.data.axies.results;
-      TaggedArray = TaggedArray.concat(TempArray);
-      NumberStart = NumberEnd;
-      NumberEnd = NumberEnd + 100;
+      console.log(data);
+      console.log(data.data.part1);
+      TaggedArray = data;
     });
-  }
-  if(NumberEnd > 6390) {
-    Categoriser(TaggedArray);
-  }
+
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part1.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part2.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part3.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part4.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part5.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part6.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part7.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part8.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part9.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part10.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part11.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part12.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part13.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part14.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part15.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part16.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part17.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part18.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part19.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part20.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part21.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part22.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part23.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part24.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part25.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part26.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part27.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part28.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part29.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part30.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part31.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part32.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part33.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part34.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part35.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part36.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part37.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part38.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part39.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part40.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part41.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part42.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part43.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part44.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part45.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part46.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part47.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part48.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part49.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part50.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part51.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part52.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part53.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part54.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part55.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part56.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part57.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part58.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part59.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part60.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part61.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part62.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part63.results);
+  ConCatArray = ConCatArray.concat(TaggedArray.data.part64.results);
+  
+  console.log(ConCatArray);
+  Categoriser(ConCatArray);
+  
 }
 
 function Categoriser(Array) {
